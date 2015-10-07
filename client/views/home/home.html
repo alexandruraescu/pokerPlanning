@@ -1,0 +1,17 @@
+<template name="home">
+    <div class="template-home center-block text-center">
+        <div class="page-header">
+            <h1>Welcome to SMART Planning Poker</h1>
+            <img src="images/logo.jpg" alt="SMART Planning Poker"/>
+        </div>
+        <h4>
+            Be SMART and
+            {{#if currentUser}}
+            <a href="{{ pathFor 'planninglist' }}" class="btn btn-primary navbar-btn">Start estimate</a>
+            {{else}}
+            <a href="{{ pathFor 'atSignUp' }}" class="btn btn-primary navbar-btn">Register</a>
+            {{/if}}
+
+        </h4>
+    </div>
+</template>

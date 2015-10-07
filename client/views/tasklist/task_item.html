@@ -1,0 +1,18 @@
+<template name="task_item">
+    <tr >
+        <td><input type="checkbox" class="check"/></td>
+        <td>{{taskId}}</td>
+        <td>{{taskName}}</td>
+        <td>{{taskDescription}}</td>
+        <td>{{#if participant}}
+                <i class="fa fa-check-circle-o"></i> yes
+            {{else}}
+             <i class="fa fa-times-circle-o"></i> no
+            {{/if}}</td>
+        <td><i class="fa fa-times-circle-o"></i> no</td>
+        <td><button type="button" class="btn btn-success" disabled="disabled" >Edit</button></td>
+        <td><button type="button" class="btn btn-danger delete">Delete</button></td>
+
+    </tr>
+
+</template>

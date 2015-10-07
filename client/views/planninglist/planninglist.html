@@ -1,0 +1,27 @@
+<template name="planninglist">
+    <div class="template-planninglist">
+        <div class="page-header">
+            <h1>Planning list</h1>
+        </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Planning session name</th>
+                <th>Scheduled on</th>
+                <th>Created on</th>
+                <th>Created by</th>
+                <th>Total story points</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each planninglist}}
+                {{>planning_item}}
+            {{/each}}
+            </tbody>
+        </table>
+
+
+
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template name="addtask">
+    <div class="template-addtask">
+        <div class="page-header">
+            <h1>Add Task</h1>
+        </div>
+        <div>
+            <div class="form-inline" data-required="true">
+                <label for="Ri8zbxjA2HSh7zxSG" class="control-label">Jira Task</label>
+                <input type="text" name="jiraTaskId" id="Ri8zbxjA2HSh7zxSG" required="" data-schema-key="taskId" class="form-control">
+                <button  class="btn btn-primary" disabled="disabled">Import Task</button>
+                <span class="help-block"></span>
+            </div>
+            {{#autoForm collection="tasks" doc=this id="insertTaskList" type="insert"}}
+            <fieldset>
+                {{> afQuickField name='taskId'}}
+                {{> afQuickField name='taskName'}}
+                {{> afQuickField name='taskDescription' rows=6}}
+                {{> afQuickField name='participant'}}
+            </fieldset>
+            <button type="clear" class="btn btn-default cancel">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+            {{/autoForm}}
+        </div>
+    </div>
+
+</template>

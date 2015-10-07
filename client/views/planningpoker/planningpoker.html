@@ -1,0 +1,109 @@
+<template name="planningpoker">
+    <div class="template-planningpoker">
+        <div class="page-header">
+            <h1>Planning Poker</h1>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="mainContentWrapper">
+                        <div class="row play-summary">
+                            <div class="col-md-2 story-counter">
+                                <p>Story</p>
+                                <p>{{storyNumbers}}</p>
+                            </div>
+                            <div class="col-md-8">
+                                <p>{{storyName}}</p>
+                                <p>{{storyDescription}}</p>
+                            </div>
+                            <div class="col-md-2 counter" >
+                                <span>{{storyTimer}}Time</span><br />
+                                {{#if isCreator}}
+                                    <button class="reveal btn btn-primary">Reveal Cards</button>
+                                 {{/if}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 row">
+                                    {{#if voteMessages}}
+                                    {{#each voteMessages}}
+                                         {{>vote_item}}
+                                    {{/each}}
+                                    {{else}}
+                                         No voting. Start Vote
+                                    {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row card-selection">
+                        <div class="col-md-12 row">
+                            <div class="card2 col-md-2" data-value="1">
+                               <p data-value="1">1</p>
+                            </div>
+                            <div class="card2 col-md-2" data-value="2">
+                                <p data-value="2">2</p>
+                            </div>
+                            <div class="card2 col-md-2" data-value="3">
+                                <p data-value="3">3</p>
+                            </div>
+                            <div class="card2 col-md-2" data-value="5">
+                                <p data-value="5">5</p>
+                            </div>
+                            <div class="card2 col-md-2" data-value="8">
+                                <p data-value="8">8</p>
+                            </div>
+                            <div class="card2 col-md-2" data-value="13">
+                                <p data-value="13">13</p>
+                            </div>
+                            <div class="card2 col-md-2" data-value="21">
+                                <p data-value="21">21</p>
+                            </div>
+                            <div class="card2 col-md-2" data-value="?">
+                                <p data-value="?">?</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="row">
+                        <div class="col-md-12 median-score">
+                            <p>Planning poker Score</p>
+                            <p id="score">50</p>
+                        </div>
+                    </div>
+                    <div class="row active-players ">
+                        <div class="col-md-12 ">
+                            <ul>
+                                {{#each users}}
+                                   <li>{{#each emails}}
+                                            {{address}}<br >
+                                        {{/each}}
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row chat">
+                        <div class="col-md-12 messages">
+                            <ol>
+                                {{#if chatMessages}}
+                                    {{#each chatMessages}}
+                                        {{>chat_item}}
+                                    {{/each}}
+                                {{else}}
+                                    <li><p>No messages. Start conversation</p></li>
+
+                                {{/if}}
+                            </ol>
+                        </div>
+                        <form id="chatSubmit">
+                        <input type="text" placeholder="Enter Message" id="enterMessage"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</template>
